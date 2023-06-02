@@ -55,11 +55,20 @@ const Form = () => {
 
                     <label htmlFor="" className="font-bold block mb-2">Task Status</label>
 
-                    <input type="radio" name="task_status" value={'Completed'} className="ml-4 mr-2 " required />
-                    <label htmlFor="completed">Completed</label>
+                    <div className="flex flex-wrap">
+                        <div>
+                            <input type="radio" name="task_status" value={'Completed'} className="ml-4 mr-2 " required />
+                            <label htmlFor="completed">Completed</label>
+                        </div>
 
-                    <input type="radio" name="task_status" value={'Ongoing'} className="ml-4 mr-2 " />
-                    <label htmlFor="ongoing">Ongoing</label>
+                        <div><input type="radio" name="task_status" value={'Ongoing'} className="ml-4 mr-2 " />
+                            <label htmlFor="ongoing">Ongoing</label></div>
+
+                        <div>
+                            <input type="radio" name="task_status" value={'Not started'} className="ml-4 mr-2 " />
+                            <label htmlFor="ongoing">Not started</label>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" className="px-6 py-2 rounded-lg bg-blue-600 text-white font-bold mt-8">Submit</button>
@@ -74,7 +83,7 @@ const Form = () => {
             <input type="checkbox" id="my_modal_7" ref={modalref} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box bg-white">
-                <label htmlFor="my_modal_7" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+                    <label htmlFor="my_modal_7" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
                     {loading
                         ? <div>
                             <span className="px-3 rounded-full  border-4 border-red-500 animate-ping"></span>
