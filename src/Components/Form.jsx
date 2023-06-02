@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 
-const Form = () => {
+const Form = ({setAdded}) => {
 
     const [loading, setLoading] = useState(false);
     const modalref = useRef();
@@ -28,7 +28,7 @@ const Form = () => {
         const result = await res.json();
 
         if (result.insertedId)
-            console.log('success')
+            setAdded(true);
         setLoading(false);
 
     }
@@ -90,7 +90,7 @@ const Form = () => {
                             <span> Processing request</span>
                         </div>
 
-                        : <h3>Success</h3>
+                        : <h3> ✔️ Success</h3>
 
                     }
                 </div>

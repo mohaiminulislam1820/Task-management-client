@@ -1,17 +1,24 @@
 import { useState } from "react";
 
 
-const Task = ({ task }) => {
+const Task = ({ task, loadData }) => {
 
-    const { task_name, task_description, task_status } = task;
+    const { task_name, task_description, task_status, _id } = task;
 
     const [editable, setEditable] = useState(false);
 
     const handleDelete = async () => {
-
+        const res = await fetch(`https://task-management-server-phi-pied.vercel.app/delete-task/${_id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        });
+        
+        const result=await res.json();
+        console.log(result);
+        loadData();
     }
 
-    const handleUpdate=async()=>{
+    const handleUpdate = async () => {
 
     }
 
@@ -23,7 +30,7 @@ const Task = ({ task }) => {
 
             {editable
                 ? <div className="mb-6">
-                    
+
                     <div className="flex flex-wrap ">
                         <div>
                             <input type="radio" name="task_status" value={'Completed'} className="ml-4 mr-2 " required />
