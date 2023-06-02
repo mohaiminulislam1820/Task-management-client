@@ -9,7 +9,7 @@ const TaskList = ({ added, setAdded }) => {
     const loadData = async () => {
         const res = await fetch('https://task-management-server-phi-pied.vercel.app/tasks');
         const result = await res.json();
-        if(added)
+        if (added)
             setAdded(false);
         setTasks(result);
     }
@@ -19,7 +19,7 @@ const TaskList = ({ added, setAdded }) => {
     }, []);
 
     useEffect(() => {
-        if(added)
+        if (added)
             loadData();
     }, [added]);
 

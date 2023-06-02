@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 
-const Form = ({setAdded}) => {
+const Form = ({ setAdded }) => {
 
     const [loading, setLoading] = useState(false);
     const modalref = useRef();
